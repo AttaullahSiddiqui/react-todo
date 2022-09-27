@@ -2,13 +2,18 @@
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Form from "react-bootstrap/Form";
-// import NavDropdown from "react-bootstrap/NavDropdown";
 import Button from "react-bootstrap/Button";
 import PropTypes from "prop-types";
-// import NavDropdown from "react-bootstrap/NavDropdown";
+import { Link } from "react-router-dom";
 
 function Header(props) {
   let { title, searchBar } = props;
+  let navItemStyle={
+    fontSize:"1.15em",
+    color:"black",
+    textDecoration:"none",
+    margin:"auto 15px"
+  }
   return (
     <Navbar bg="light" expand="lg" sticky="top" className="px-5">
       <Navbar.Brand href="#home">{title}</Navbar.Brand>
@@ -19,8 +24,12 @@ function Header(props) {
           style={{ maxHeight: "100px" }}
           navbarScroll
         >
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#about">About</Nav.Link>
+          <Link to="/">
+            <div style={navItemStyle}>Home</div>
+          </Link>
+          <Link to="/about">
+            <div style={navItemStyle}>About</div>
+          </Link>
           {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

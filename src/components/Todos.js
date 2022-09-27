@@ -14,8 +14,7 @@ export const Todos = () => {
   }, [todos]);
 
   const addTodoFunc = (todo) => {
-    todo.sNo = todos.length + 1;
-    console.log("New todo ", todo);
+    todos[0]?todo.sNo=todos[todos.length-1].sNo+1:todo.sNo=1;
     setTodos([...todos, todo]);
   };
   const deleteTodoFunc = (sNo) => {
